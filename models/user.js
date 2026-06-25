@@ -10,6 +10,6 @@ const UserSchema = new Schema({
   }
 });
 
-UserSchema.plugin(passportlocalMongoose.default, { usernameField: 'email' }); // Use email as the username field
+UserSchema.plugin(passportlocalMongoose.default);// Use email as the username field
 
 module.exports = mongoose.model('User', UserSchema);
