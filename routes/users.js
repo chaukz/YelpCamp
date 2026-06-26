@@ -4,6 +4,7 @@ const passport = require('passport');
 const User = require('../models/user');
 const catchAsync = require('../utils/catchAsync');
 const ExpressError = require('../utils/ExpressError');
+const { returnTo } = require('../middleware');
 
 router.get('/register', (req, res) => {
   res.render('users/register');
