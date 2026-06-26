@@ -103,9 +103,6 @@ app.use('/campgrounds/:id/reviews', reviewRoutes);
 
 app.get('/', (req, res) => res.render('home'));
 
-
-
-
 app.all('*path', (req, res, next) => {
   next(new ExpressError('Page Not Found', 404));
 });
@@ -115,7 +112,5 @@ app.use((err,req,res,next) => {
   if (!err.message)  err.message = 'Oh No, Something Went Wrong!';
   res.status(statusCode).render('error', { err });
 });
-
-
 
 app.listen(3000, () => console.log('Server running on http://localhost:3000/'));
