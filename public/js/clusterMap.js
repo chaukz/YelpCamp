@@ -1,7 +1,7 @@
 maptilersdk.config.apiKey = maptilerApiKey;
 
 const map = new maptilersdk.Map({
-    container: 'map',
+    container: 'cluster-map',
     style: maptilersdk.MapStyle.BRIGHT,
     center: [25.0, -29.0], // South Africa center [lng, lat]
     zoom: 5
