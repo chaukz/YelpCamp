@@ -3,8 +3,8 @@ maptilersdk.config.apiKey = maptilerApiKey;
 const map = new maptilersdk.Map({
     container: 'map',
     style: maptilersdk.MapStyle.BRIGHT,
-    center: [-103.59179687498357, 40.66995747013945],
-    zoom: 3
+    center: [25.0, -29.0], // South Africa center [lng, lat]
+    zoom: 5
 });
 
 map.on('load', function () {

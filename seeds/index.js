@@ -3,6 +3,8 @@ const Campground = require('../models/campground');
 const cities = require('./cities');
 const seedHelpers = require('./seedHelpers');
 
+require('dotenv').config();
+
 mongoose.connect('mongodb://localhost:27017/yelp-camp', {})
     .then(() => {
         console.log('Connected to MongoDB');
@@ -25,22 +27,26 @@ const seedImg = [
 const seedDB = async () => {
     await Campground.deleteMany({});
     for (let i = 0; i < 50; i++) {
-        const random1000 = Math.floor(Math.random() * 1000);
-        const camp = new Campground({
-            author: '6a3d3656ebc5111b3091981e',
-            title: `${seedHelpers.descriptors[Math.floor(Math.random() * seedHelpers.descriptors.length)]} ${seedHelpers.places[Math.floor(Math.random() * seedHelpers.places.length)]}`,
-            price: Math.floor(Math.random() * 20) + 10,
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            geometry: {
-                type: "Point",
-                coordinates: [
-                    cities[random1000].longitude,
-                    cities[random1000].latitude,
-                ]
-            },
-            images: seedImg
-        });
-        await camp.save();
+        try {
+            const randomIndex = Math.floor(Math.random() * cities.length);
+            const randomCity = cities[randomIndex];
+            const camp = new Campground({
+                author: '6a3d3656ebc5111b3091981e',
+                title: `${seedHelpers.descriptors[Math.floor(Math.random() * seedHelpers.descriptors.length)]} ${seedHelpers.places[Math.floor(Math.random() * seedHelpers.places.length)]}`,
+                price: Math.floor(Math.random() * 20) + 10,
+                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                geometry: {
+                    type: "Point",
+                    coordinates: [randomCity.longitude, randomCity.latitude]
+                },
+                location: `${randomCity.city}, ${randomCity.state}`,
+                images: seedImg
+            });
+            await camp.save();
+            console.log(`Saved: ${camp.title}`);
+        } catch (e) {
+            console.log('Error saving camp:', e.message);
+        }
     }
 };
 
