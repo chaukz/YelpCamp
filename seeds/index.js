@@ -31,7 +31,13 @@ const seedDB = async () => {
             title: `${seedHelpers.descriptors[Math.floor(Math.random() * seedHelpers.descriptors.length)]} ${seedHelpers.places[Math.floor(Math.random() * seedHelpers.places.length)]}`,
             price: Math.floor(Math.random() * 20) + 10,
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            location: `${cities[random1000].city}, ${cities[random1000].state}`,
+            geometry: {
+                type: "Point",
+                coordinates: [
+                    cities[random1000].longitude,
+                    cities[random1000].latitude,
+                ]
+            },
             images: seedImg
         });
         await camp.save();
