@@ -18,7 +18,8 @@ const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
 const expressMongoSanitize = require('express-mongo-sanitize');
 const helmet = require('helmet');
-const MongoStore = require('connect-mongo');
+const connectMongo = require('connect-mongo');
+const MongoStore = connectMongo.default || connectMongo;
 
 const DBurl = process.env.DB_URL || 'mongodb://localhost:27017/yelp-camp';
 
