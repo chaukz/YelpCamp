@@ -1,0 +1,43 @@
+{
+  "name": "yelpcamp",
+  "version": "1.0.0",
+  "description": "YelpCamp is my first full-stack web application that allows users to browse, create, and review campgrounds. Users can register for an account, log in securely, upload images, add campground locations, and leave reviews on campgrounds created by other users. Authentication and authorization ensure that only the owners of campgrounds and reviews can modify or delete their content.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chaukz/YelpCamp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/chaukz/YelpCamp/issues"
+  },
+  "homepage": "https://github.com/chaukz/YelpCamp#readme",
+  "dependencies": {
+    "@maptiler/client": "^3.0.2",
+    "cloudinary": "^1.41.3",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^6.0.0",
+    "dotenv": "^17.4.2",
+    "ejs": "^6.0.1",
+    "ejs-mate": "^4.0.0",
+    "express": "^5.2.1",
+    "express-mongo-sanitize": "^2.2.0",
+    "express-session": "^1.19.0",
+    "helmet": "^8.2.0",
+    "joi": "^18.2.3",
+    "method-override": "^3.0.0",
+    "mongoose": "^9.7.3",
+    "multer": "^2.2.0",
+    "multer-storage-cloudinary": "^4.0.0",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^9.1.0",
+    "sanitize-html": "^2.17.5"
+  }
+}
